@@ -1,28 +1,36 @@
-# React + TypeScript + Vite
+# WalletConnect session issue - messing up with session when using ethers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+to start project
 
-Currently, two official plugins are available:
+1. Setup Wallet Connect projekt ID inside App.tsx - you can get it from https://cloud.walletconnect.com/sign-in
+2. Run commands:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```
+yarn
+yarn dev --host
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# wallet-connect-session-issue
+You should see something like:
+
+```
+
+  VITE v4.4.8  ready in 543 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: http://192.168.3.19:5174/
+  ➜  Network: http://169.254.101.12:5174/
+  ➜  press h to show help
+
+
+```
+
+then open for example `http://192.168.3.19:5174/` on your phone
+
+## Steps to reproduce:
+
+0. Use mobile device and open app
+1. Connect MetaMask or Trust
+2. Make sure that is listed on a session list
+3. Try to send usdc - see that it open MetaMask and propt transaction
+4. Connect any another wallet (for example Rainbow)
+5. Try to send USDC transaction again from first connected wallet (MetaMask/Trust)
