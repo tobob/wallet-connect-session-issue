@@ -34,3 +34,4 @@ then open for example `http://192.168.3.19:5174/` on your phone
 3. Try to send usdc - see that it open MetaMask and propt transaction
 4. Connect any another wallet (for example Rainbow)
 5. Try to send USDC transaction again from first connected wallet (MetaMask/Trust)
+6. You will see that it opens last connected wallet rather then original wallet
